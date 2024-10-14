@@ -1,0 +1,32 @@
+<div>
+    <h2>Vacation Requests</h2>
+    <table>
+      <thead>
+        <tr>
+        <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Reason</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Leave Status</th>
+          <th>Requested At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of vacationRequests">
+            <td>{{request.employee}}</td>
+          <td>{{ request.employee_name }}</td>
+          <td>{{ request.reason }}</td>
+          <td>{{ request.start_date }}</td>
+          <td>{{ request.end_date }}</td>
+          <td>{{ request.leave_status }}</td>
+          <td>{{ request.leave_requested_at }}</td>
+          <td>
+            <button class="approve-btn" (click)="updateStatus(request.id, 'approved')">Approve</button>
+            <button class="reject-btn" (click)="updateStatus(request.id, 'rejected')">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

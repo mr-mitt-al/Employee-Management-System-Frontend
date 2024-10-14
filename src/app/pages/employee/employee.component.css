@@ -1,0 +1,28 @@
+.highlight-input {
+    border: 2px solid grey;
+    border-radius: 4px; 
+    transition: border-color 0.3s; 
+}
+
+.highlight-input:focus {
+    border-color: #0056b3; 
+    box-shadow: 0 0 5px rgba(5, 174, 67, 0.5); 
+}
+
+.highlight-input:hover {
+    border-color: #000296; 
+}
+.tab-pane {
+    margin-top: 30px; 
+}
+.btn{
+    margin: 10px;
+}
+
+.table td, .table th {
+    vertical-align: middle; 
+}
+
+.btn {
+    margin-right: 10px;
+}

@@ -1,0 +1,49 @@
+
+<form (ngSubmit)="submitVacationRequest()" #vacationForm="ngForm" class="vacation-form">
+  <h2>Request Vacation</h2>
+  <div class="form-group">
+    <label for="start_date">Start Date:</label>
+    <input type="date" [(ngModel)]="start_date" name="start_date" required>
+  </div>
+  <div class="form-group">
+    <label for="end_date">End Date:</label>
+    <input type="date" [(ngModel)]="end_date" name="end_date" required>
+  </div>
+  <div class="form-group">
+    <label for="reason">Reason:</label>
+    <textarea [(ngModel)]="reason" name="reason" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="attached_file">Attach File:</label>
+    <input type="file" (change)="onFileChange($event)">
+  </div>
+  <button type="submit" class="submit-button">Submit Vacation Request</button>
+</form>
+
+<!-- My Vacations Button -->
+<button (click)="fetchVacationRequests()" class="my-vacations-button">My Vacations</button>
+<button (click)="closeVacations()" class="my-vacations-close-button">Close</button>
+
+
+<!-- Vacation Requests Table -->
+<div *ngIf="showVacations">
+  <h2>Your Vacation Requests</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Reason</th>
+              <th>Leave Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let request of vacationRequests">
+              <td>{{ request.start_date }}</td>
+              <td>{{ request.end_date }}</td>
+              <td>{{ request.reason }}</td>
+              <td>{{ request.leave_status }}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
